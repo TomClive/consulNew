@@ -264,12 +264,13 @@ class Budget
     end
 
     def reason_for_not_being_ballotable_by(user, ballot)
-      return permission_problem(user)    if permission_problem?(user)
-      return :not_selected               unless selected?
-      return :no_ballots_allowed         unless budget.balloting?
-      return :different_heading_assigned unless ballot.valid_heading?(heading)
-      return :not_enough_money           if ballot.present? && !enough_money?(ballot)
-      return :casted_offline             if ballot.casted_offline?
+      return permission_problem(user)         if permission_problem?(user)
+      return :not_selected                    unless selected?
+      return :no_ballots_allowed              unless budget.balloting?
+      return :different_heading_assigned_html unless ballot.valid_heading?(heading)
+      return :not_enough_available_votes_html if not_enough_available_votes?(ballot, heading)
+      return :not_enough_money_html           if not_enough_money?(ballot, heading)
+      return :casted_offline                  if ballot.casted_offline?
     end
 
     def permission_problem(user)
@@ -408,5 +409,15 @@ class Budget
         { title       => "A",
           description => "D" }
       end
+
+      def not_enough_available_votes?(ballot, heading)
+        ballot_investments_for_group = ballot.investments.where(group_id: heading.group.id).count
+        heading.group.budget.approval_voting? && ballot_investments_for_group >= heading.max_votes
+      end
+
+      def not_enough_money?(ballot, heading)
+        heading.budget.money_bounded? && ballot.present? && !enough_money?(ballot)
+      end
+
   end
 end

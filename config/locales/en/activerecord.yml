@@ -141,6 +141,11 @@ en:
         description_finished: "Description when the budget is finished"
         phase: "Phase"
         currency_symbol: "Currency"
+        budget_milestone_tags: "Milestone tags"
+        budget_valuation_tags: "Valuation tags"
+        help_link: "Help link"
+        voting_style: "Voting Style"
+        money_bounded: "Voter can't exceed budget"
       budget/translation:
         name: "Name"
       budget/investment:
@@ -212,6 +217,9 @@ en:
       budget/phase/translation:
         description: "Description"
         summary: "Summary"
+        price: "Price"
+        population: "Population"
+        max_votes: "Number of votes a user can cast under each heading"
       comment:
         body: "Comment"
         user: "User"

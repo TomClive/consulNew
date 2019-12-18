@@ -68,4 +68,5 @@ describe Budget::Group do
       end
     end
   end
+
 end

@@ -216,6 +216,7 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.text     "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "max_votes",            default: 1
     t.index ["group_id"], name: "index_budget_headings_on_group_id", using: :btree
   end
 
@@ -360,6 +361,8 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.text     "description_drafting"
     t.text     "description_publishing_prices"
     t.text     "description_informing"
+    t.string   "voting_style",                             default: "knapsack"
+    t.boolean  "money_bounded",                            default: true
   end
 
   create_table "campaigns", force: :cascade do |t|
