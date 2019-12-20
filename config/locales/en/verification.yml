@@ -47,6 +47,7 @@ en:
       new:
         accept_terms_text: I accept %{terms_url} of the Census
         accept_terms_text_title: I accept the terms and conditions of access of the Census
+        date_of_birth: Date of birth
         document_number: Document number
         document_number_help_title: Help
         document_number_help_text: "<strong>DNI</strong>: 12345678A<br> <strong>Passport</strong>: AAA000001<br> <strong>Residence card</strong>: X1234567P"
@@ -58,6 +59,7 @@ en:
         error_not_allowed_postal_code: In order to be verified, you must be registered.
         error_verifying_census: The Census was unable to verify your information. Please confirm that your census details are correct by calling to City Council or visit one Citizen Support Office.
         form_errors: prevented the verification of your residence
+        postal_code: Postcode
         postal_code_note: To verify your account you must be registered
         terms: the terms and conditions of access
         title: Verify residence
